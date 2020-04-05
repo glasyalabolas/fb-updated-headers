@@ -104,17 +104,17 @@ namespace FB
   '' Color values for transparency
   #if __FB_LANG__ = "qb"
     const as __ulong _
-  	  MASK_COLOR_INDEX  = 0, _
+      MASK_COLOR_INDEX  = 0, _
       MASK_COLOR        = &hFF00FF
   #else
     const as ulong _
-  	  MASK_COLOR_INDEX  = 0, _
+      MASK_COLOR_INDEX  = 0, _
       MASK_COLOR        = &hFF00FF
   #endif
   
-	'' Event type IDs
-	const as integer _
-	  EVENT_KEY_PRESS             = 1, _
+  '' Event type IDs
+  const as integer _
+    EVENT_KEY_PRESS             = 1, _
     EVENT_KEY_RELEASE           = 2, _
     EVENT_KEY_REPEAT            = 3, _
     EVENT_MOUSE_MOVE            = 4, _
@@ -129,33 +129,34 @@ namespace FB
     EVENT_WINDOW_CLOSE          = 13, _
     EVENT_MOUSE_HWHEEL          = 14
 	
-	'' Event structure, to be used with ScreenEvent
-	type EVENT field = 1
-		type as long
-		#if __FB_LANG__ = "qb"
-		  __union
-		#else
-		  union
-		#endif
-			type
-				scancode as long
-				ascii as long
-			end type
-			type
-				x as long
-				y as long
-				dx as long
-				dy as long
-			end type
-			button as long
-			z as long
-			w as long
-		#if __FB_LANG__ = "qb"
-		  end __union
-		#else
-		  end union
-		#endif
-	end type
+  '' Event structure, to be used with ScreenEvent
+  type EVENT field = 1
+    type as long
+  #if __FB_LANG__ = "qb"
+    __union
+  #else
+    union
+  #endif
+      type
+        scancode as long
+        ascii as long
+      end type
+      type
+        x as long
+        y as long
+        dx as long
+        dy as long
+      end type
+      
+      button as long
+      z as long
+      w as long
+  #if __FB_LANG__ = "qb"
+    end __union
+  #else
+    end union
+  #endif
+  end type
   
   '' Image buffer header, old style
   type _OLD_HEADER field = 1
