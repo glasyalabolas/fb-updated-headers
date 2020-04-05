@@ -6,17 +6,17 @@
 
 #inclib "fbgfx"
 #ifdef __FB_WIN32__
-	#inclib "gdi32"
-	#inclib "winmm"
-	#inclib "user32"
+  #inclib "gdi32"
+  #inclib "winmm"
+  #inclib "user32"
 #elseif defined(__FB_LINUX__)
-	#libpath "/usr/X11R6/lib"
-	#inclib "X11"
-	#inclib "Xext"
-	#inclib "Xpm"
-	#inclib "Xrandr"
-	#inclib "Xrender"
-	#inclib "pthread"
+  #libpath "/usr/X11R6/lib"
+  #inclib "X11"
+  #inclib "Xext"
+  #inclib "Xpm"
+  #inclib "Xrandr"
+  #inclib "Xrender"
+  #inclib "pthread"
 #endif
 
 #if __FB_LANG__ = "fb"
@@ -40,22 +40,22 @@ namespace FB
     GFX_ALWAYS_ON_TOP     = &h20, _
     GFX_ALPHA_PRIMITIVES  = &h40, _
     GFX_HIGH_PRIORITY     = &h80
-	
+  
   '' OpenGL options
   const as long _
     GFX_STENCIL_BUFFER      = &h10000, _
     GFX_ACCUMULATION_BUFFER = &h20000, _
     GFX_MULTISAMPLE         = &h40000
   
-	'' Constants for OpenGL 2D render
-	const as integer _
-	  OGL_2D_NONE         = 0, _
+  '' Constants for OpenGL 2D render
+  const as integer _
+    OGL_2D_NONE         = 0, _
     OGL_2D_MANUAL_SYNC  = 1, _
     OGL_2D_AUTO_SYNC    = 2
   
   '' Constants accepted by ScreenControl
   '' Getters:
-	const as integer _
+  const as integer _
     GET_WINDOW_POS        = 0, _
     GET_WINDOW_TITLE      = 1, _
     GET_WINDOW_HANDLE     = 2, _
@@ -74,8 +74,8 @@ namespace FB
     GET_GL_EXTENSIONS     = 15, _
     GET_HIGH_PRIORITY     = 16
 	
-	'' Setters:
-	const as integer _
+  '' Setters:
+  const as integer _
     SET_WINDOW_POS          = 100, _
     SET_WINDOW_TITLE        = 101, _
     SET_PEN_POS             = 102, _
@@ -96,11 +96,11 @@ namespace FB
     SET_GL_NUM_SAMPLES      = 117, _
     SET_GL_2D_MODE          = 150, _
     SET_GL_SCALE            = 151
-	
+  
   '' Commands:
   const as integer _
     POLL_EVENTS   = 200
-	
+  
   '' Color values for transparency
   #if __FB_LANG__ = "qb"
     const as __ulong _
@@ -128,7 +128,7 @@ namespace FB
     EVENT_WINDOW_LOST_FOCUS     = 12, _
     EVENT_WINDOW_CLOSE          = 13, _
     EVENT_MOUSE_HWHEEL          = 14
-	
+  
   '' Event structure, to be used with ScreenEvent
   type EVENT field = 1
     type as long
@@ -210,7 +210,7 @@ namespace FB
   '	end property
   
   type PUT_HEADER as IMAGE
-	
+  
   '' Constant identifying new style headers
   '' (image.type must be equal to this value in new style headers)
   const as integer PUT_HEADER_NEW = &h7
