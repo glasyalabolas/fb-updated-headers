@@ -198,16 +198,18 @@ namespace FB
       pitch as ulong
       _reserved(1 to 12) as ubyte
     #endif
-    
-  '		'' properties
-  '		declare property pixels() as ubyte ptr
   end type
   
   '' This is a trick to obtain a pointer to the pixels data area
-  ''
-  '	property IMAGE.pixels() as ubyte ptr
-  '		return cast(ubyte ptr, @this) + sizeof(IMAGE)
-  '	end property
+  #if __FB_LANG__ = "qb"
+    function __pixels( byval anImage as Image __ptr ) as __ubyte __ptr
+      __pixels = __cast( __ubyte __ptr, anImage ) + __sizeOf( Image )
+    end function
+  #else
+    function __pixels( byval anImage as Image ptr ) as ubyte ptr
+      return( cast( ubyte ptr, anImage ) + sizeOf( Image ) )
+    end function
+  #endif
   
   type PUT_HEADER as IMAGE
   
